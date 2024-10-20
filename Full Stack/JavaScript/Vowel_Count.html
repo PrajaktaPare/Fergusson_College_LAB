@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Vowels Dynamically</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 300px;
+            margin-right: 300px;
+            margin-top: 150px;
+           
+            
+        }
+        h2,label{
+            color:purple;
+            
+        }
+        .container {
+            max-width: 500px;
+            padding:50px;
+            margin: 0 auto;
+            border: 3px dashed rgb(172, 118, 172);
+            background-color: rgb(240, 201, 240);
+        }
+        .f {
+            margin-bottom: 15px;
+        }
+        .f input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .f p {
+            font-size: 18px;
+            margin-top: 10px;
+            text-decoration: underline;
+            text-decoration-color: purple;
+            text-decoration-thickness:3px;
+            
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Vowel Counter</h2>
+    
+    <div class="f">
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" oninput="countVowels()" >
+    </div>
+
+    <div class="f">
+        <p><b>Number of vowels: </b><span id="vowelCount">0</span></p>
+    </div>
+</div>
+
+<script>
+    function countVowels() {
+        var inputString = document.getElementById('inputString').value;
+        var vowelCount = 0;
+        var vowels = 'aeiouAEIOU';
+        for (var i = 0; i < inputString.length; i++) {
+            if (vowels.indexOf(inputString[i]) !== -1) {
+                vowelCount++;
+            }
+        }
+        document.getElementById('vowelCount').innerText = vowelCount;
+    }
+</script>
+
+</body>
+</html>

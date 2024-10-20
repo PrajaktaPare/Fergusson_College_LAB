@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Salary Slip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 600px;
+
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .f {
+            margin-bottom: 15px;
+        }
+
+        .f label {
+            font-size: 16px;
+        }
+
+        .f input {
+            width: 90%;
+            padding: 7px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .f button {
+            width: 93%;
+            padding: 10px;
+            background-color: #282096;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Employee Salary Slip Form</h2>
+
+        <form id="salaryForm">
+            <div class="f">
+                <label for="empName">Employee Name:</label>
+                <input type="text" id="empName" required>
+            </div>
+
+            <div class="f">
+                <label for="basicSalary">Basic Salary :</label>
+                <input type="number" id="basicSalary" required>
+            </div>
+
+            <div class="f">
+                <button type="button" onclick="calculateSalary()">Generate Salary Slip</button>
+            </div>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function calculateSalary() {
+
+            let name = document.getElementById('empName').value;
+            let basicSalary = parseFloat(document.getElementById('basicSalary').value);
+
+            if (isNaN(basicSalary) || basicSalary <= 0) {
+                alert("Please enter a valid basic salary!");
+                return;
+            }
+
+
+            let da = 0.10 * basicSalary;
+            let hra = 0.15 * basicSalary;
+            let pf = 0.12 * basicSalary;
+            let tax = 0.05 * basicSalary;
+            let grossPay = basicSalary + da + hra;
+            let deduction = pf + tax;
+            let netPay = grossPay - deduction;
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+            <h3>Salary Slip for ${name}</h3>
+            <p><strong>Basic Salary:</strong> ₹${basicSalary.toFixed(2)}</p>
+            <p><strong>Dearness Allowance (DA):</strong> ₹${da.toFixed(2)}</p>
+            <p><strong>House Rent Allowance (HRA):</strong> ₹${hra.toFixed(2)}</p>
+            <p><strong>Provident Fund (PF):</strong> ₹${pf.toFixed(2)}</p>
+            <p><strong>Tax Deduction:</strong> ₹${tax.toFixed(2)}</p>
+            <p><strong>Gross Pay:</strong> ₹${grossPay.toFixed(2)}</p>
+            <p><strong>Total Deductions:</strong> ₹${deduction.toFixed(2)}</p>
+            <p><strong>Net Pay:</strong> ₹${netPay.toFixed(2)}</p>
+        `;
+        }
+    </script>
+
+</body>
+
+</html>

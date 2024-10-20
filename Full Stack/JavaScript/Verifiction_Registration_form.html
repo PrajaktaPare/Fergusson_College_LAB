@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form with Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color:lavender;
+        }
+        .container {
+            max-width: 500px;
+            margin-top: 70px;
+            margin-left: 400px;
+            background-color: #fff;
+            padding: 20px;
+            padding-left: 45px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+        h2 {
+            text-align: center;
+        }
+        .f {
+            margin-bottom: 15px;
+        }
+        .f label {
+            font-size: 16px;
+        }
+        .f input {
+            width: 90%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .f button {
+            width: 96%;
+            padding: 10px;
+            background-color:rgb(50, 50, 189);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .f button:hover {
+            background-color:rgb(74, 74, 223);
+            color: black;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #da7979;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+    
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <div class="f">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name"  placeholder="Enter your full name">
+        </div>
+        
+        <div class="f">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email"  placeholder="Enter your email address">
+        </div>
+
+        <div class="f">
+            <label for="password">Password:</label>
+            <input type="password" id="password"  placeholder="Create a password">
+        </div>
+
+        <div class="f">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone"  placeholder="Enter your phone number">
+        </div>
+
+        <div class="f">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+
+    <div id="errorMessages"></div>
+</div>
+
+<script>
+    function validateForm() {
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var errorMessages = [];
+
+        if (name === "") {
+            errorMessages.push("Name is required.");
+        }
+        
+        
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (email === "") {
+            errorMessages.push("Email is required.");
+        } else if (!emailPattern.test(email)) {
+            errorMessages.push("Please enter a valid email address.");
+        }
+        
+        if (password === "") {
+            errorMessages.push("Password is required.");
+        }
+        
+        var phonePattern = /^[0-9]{10}$/;
+        if (phone === "") {
+            errorMessages.push("Phone number is required.");
+        } else if (!phonePattern.test(phone)) {
+            errorMessages.push("Please enter a valid 10-digit phone number.");
+        }
+        
+        if (errorMessages.length > 0) {
+            var errorMessageList = "<ul>";
+            errorMessages.forEach(function(message) {
+                errorMessageList += "<li>" + message + "</li>";
+            });
+            errorMessageList += "</ul>";
+            document.getElementById('errorMessages').innerHTML = "<div style='color: red;'>" + errorMessageList + "</div>";
+            return false;
+        }
+        alert("Registration successful!");
+        return true;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #rectangle {
+            width: 400px;
+            height: 300px;
+            border: 2px dashed #333;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #image {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+        #dragContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #dragMessage {
+            margin: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Drag and Drop the Image into the Rectangle</h1>
+
+
+    <div id="dragContainer">
+        <img id="image" src="kerala.jpg" draggable="true" alt="Drag me!">
+    </div>
+
+    <div id="rectangle" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p id="dragMessage">Drop the image here</p>
+    </div>
+
+    <script>
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+
+        function drop(event) {
+            event.preventDefault();
+
+
+            const image = document.getElementById('image');
+            const rectangle = document.getElementById('rectangle');
+
+
+
+
+            rectangle.appendChild(image);
+
+
+            document.getElementById('dragMessage').style.display = 'none';
+        }
+
+
+        document.getElementById('image').addEventListener('dragstart', function (event) {
+            event.dataTransfer.setData('text', event.target.id);
+        });
+    </script>
+
+</body>
+
+</html>

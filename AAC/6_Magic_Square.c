@@ -1,67 +1,45 @@
 #include<stdio.h>
-#include<stdlib.h>
-
-#define SIZE 20
-
-int main()
+int magicsqurare(int n)
 {
-    int order, i, j, k, p, q, mid, magic[SIZE][SIZE];
-
-    printf("Enter order of magic square : ");
-    scanf("%d", &order);
-
-    if(order%2==0)
+    int temp[n][n];
+    int c=n/2;//column
+    int r=0;//row
+    int i,j;
+    for( i=0;i<n;i++)
     {
-        printf("Order must be odd.\n");
-      return 0;
-    }
-
-    mid = order/2;
-
-    for(i=0;i< order; i++)
-    {
-        for(j=0; j< order; j++)
+        for( j=0;j<n;j++)
         {
-            magic[i][j]=0;
-        }
-    }
-
-    k=mid;
-    j=0;
-    for(i=1; i<= order*order; i++)
-    {
-        magic[j][k] = i;
-        p = j--;
-        q = k++;
-
-        if(j< 0)
-        {
-            j = order-1;
-        }
-
-        if(k>order-1)
-        {
-            k=0;
-        }
-
-        if(magic[j][k] != 0)
-        {
-            k = q;
-            j = p+1;
-        }
-    }
-
-    printf("MAGIC SQUARE :\n");
-
-    for(j=0;j< order;j++)
-    {
-        
-        for(k=0; k< order; k++)
-        {
-            printf("%d ", magic[j][k]);
+             temp[i][j]=0;
         }
         printf("\n");
-    
     }
-    return 0;
+    for(i=1;i<=n*n;i++)
+    {
+        temp[r][c]=i;
+        int nr=((n+r)-1)%n;//newcolumn
+        int nc=((n+c)-1)%n;//newrow
+        if(temp[nr][nc]!=0)
+        {
+            r=(r+1)%n;
+        }
+        else{
+            r=nr;
+            c=nc;
+        }
+    }  
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d ",temp[i][j]);
+        }
+        printf("\n");
+    }
+}
+int main()
+{
+    int n;
+    printf("Enter Order of magic square : ");
+    scanf("%d",&n);
+    magicsqurare(n);
 }

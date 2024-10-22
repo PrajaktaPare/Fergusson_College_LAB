@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    body{
+        text-align: left;
+        border:1px solid black;
+        padding: 20px;
+        margin-right: 940px;
+    }
+    div{
+        font-size:medium;
+        color:blue;
+       
+    }
+</style>
+
+</head>
+<body>
+    <h2>Array and Array Functions in JS</h2>
+    <div id="d">Created Array by JavaScript are :<br> </div><br>
+    <div id="d1">Length of created path is  ( length )  : <br> </div><br>
+    <div id="d2">Index of Orange is  ( indexOf() )  :  <br></div><br>
+    
+    <div id="a">Add element at beginning of array ( unshift() ) : <br> </div><br>
+    <div id="a1">Add element in array ( push() ) : <br> </div><br>
+    <div id="a2">Delete element in array ( pop() ) :  <br></div><br>
+
+    <script>
+        const colours=['Red ',' Yellow ',' Orange ',' Purple '];
+        document.getElementById("d").innerHTML+=colours;
+        let l=colours.length;
+        document.getElementById("d1").innerHTML+=l;
+        let i=colours.indexOf('orange')+1;
+        document.getElementById('d2').innerHTML+=i;
+        colours.unshift('Grey');
+        document.getElementById("a").innerHTML+=colours;
+        colours.push('Blue');
+        document.getElementById("a1").innerHTML+=colours;
+        colours.pop();
+        document.getElementById("a2").innerHTML+=colours;
+         
+       
+       
+    </script>
+</body>
+</html>

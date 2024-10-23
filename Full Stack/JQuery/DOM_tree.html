@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="u1">
+        <li>
+            Listening Songs
+        </li>
+        <li>
+            Traveling
+        </li>
+        <li>
+            Having fun with friends, with study
+        </li>
+
+    </ul>
+    <div id="d1">
+        <p id="d2">
+            this is a para
+        </p>
+        <span>this is span</span>
+        <div>This is div</div>
+    </div>
+</body>
+<script src="jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log($('li').parents());//to print all parents
+        $($("li").parents()[0]).css("background-color", "lavender");
+
+        console.log($('#d1').children());
+        $($("#d1").children()[0]).css("color", "Purple");
+
+        console.log($("#d2").siblings());
+        $($("#d2").siblings()[0]).css("color", "Blue");
+    });
+</script>
+
+</html>

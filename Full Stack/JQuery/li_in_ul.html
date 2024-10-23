@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <ul id="ul1">
+        <li>
+            1st Item
+        </li>
+        <li>
+            2nd Item
+        </li>
+    </ul>
+    <button id="b">click to add item</button>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('#b').click(function()
+            {
+                $('#ul1').append('<li>New Item</li>');
+            });
+        });
+    </script>
+</body>
+</html>

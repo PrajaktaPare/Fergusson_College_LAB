@@ -1,5 +1,4 @@
-
-
+import java.util.*;
 public class GreatestCommonDivisorOfStrings {
     public String gcdOfStrings(String str1,String str2)
     {

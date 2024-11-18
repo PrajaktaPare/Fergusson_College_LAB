@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ContainerWithMostWater",
+      "request": "launch",
+      "mainClass": "ContainerWithMostWater",
+      "projectName": "Fergusson_College_LAB_782f2390"
+    },
+    {
+      "type": "java",
+      "name": "Solution",
+      "request": "launch",
+      "mainClass": "Solution",
+      "projectName": "Fergusson_College_LAB_782f2390"
+    },
+    {
+      "type": "java",
+      "name": "IsSubsequence",
+      "request": "launch",
+      "mainClass": "IsSubsequence",
+      "projectName": "Fergusson_College_LAB_782f2390"
+    },
+    {
+      "type": "java",
+      "name": "MoveZeros",
+      "request": "launch",
+      "mainClass": "MoveZeros",
+      "projectName": "Fergusson_College_LAB_782f2390"
+    },
+    {
+      "type": "java",
+      "name": "StringCompression",
+      "request": "launch",
+      "mainClass": "StringCompression",
+      "projectName": "Fergusson_College_LAB_782f2390"
+    },
+    {
+      "type": "java",
+      "name": "IncreasingTripletSubsequences",
+      "request": "launch",
+      "mainClass": "IncreasingTripletSubsequences",
+      "projectName": "Fergusson_College_LAB_782f2390"
+    },
+    {
+      "type": "java",
       "name": "ReverseVowelsOfString",
       "request": "launch",
       "mainClass": "ReverseVowelsOfString",

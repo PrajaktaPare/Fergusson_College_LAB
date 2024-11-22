@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MaxConsecutiveOnes",
+      "request": "launch",
+      "mainClass": "MaxConsecutiveOnes",
+      "projectName": "Fergusson_College_LAB_782f2390"
+    },
+    {
+      "type": "java",
       "name": "MaxAvgSubArray",
       "request": "launch",
       "mainClass": "MaxAvgSubArray",

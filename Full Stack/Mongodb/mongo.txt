@@ -1,0 +1,36 @@
+test> mongod --port 27017 --dbpath "C:\Program Files\MongoDB\Server\8.0\data" --replSet rso
+
+
+test> mongod --port 27017 --dbpath "C:\Program Files\MongoDB\Server\8.0\data" --replSet rso
+
+
+pool journal 
+
+aggregate data
+
+push : to add multiple data of same datatype
+
+
+
+use student
+switched to db student
+db.createCollection("subject")
+{ ok: 1 }
+db.createCollection("names")
+{ ok: 1 }
+db.myCollection.insertOne({
+  name: "John Doe",
+  age: 30,
+  city: "New York"
+})
+
+
+
+{
+  acknowledged: true,
+  insertedId: ObjectId('67d7ccee868262ac0d015c0d')
+}
+
+
+
+

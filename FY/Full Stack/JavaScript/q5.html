@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Arrays and Remove Duplicates</title>
+</head>
+<body>
+    <label>Enter first array (comma-separated) :: </label>
+    <input type="text" id="a1" value="[1,2,3,4]">
+    <br><br>
+    <label>Enter second array (comma-separated) :: </label>
+    <input type="text" id="a2" value="[3,4,5,6]">
+    <br><br>
+    <button id="btn" onclick="mergeArrays()">Submit</button>
+    <p id="op"></p>
+
+    <script>
+        function mergeArrays() {
+            // Get the arrays from the inputs and parse them as arrays
+            let arr1 = JSON.parse(document.getElementById("a1").value);
+            let arr2 = JSON.parse(document.getElementById("a2").value);
+
+            // Merge arrays using the spread operator and create a Set to remove duplicates
+            let mergedArray = [...arr1, ...arr2];
+            let uniqueArray = [...new Set(mergedArray)];
+
+            // Display the result
+            document.getElementById("op").innerHTML = 'Merged and Unique Array: ' + JSON.stringify(uniqueArray);
+        }
+    </script>
+</body>
+</html>
